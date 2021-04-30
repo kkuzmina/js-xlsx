@@ -5,14 +5,7 @@ var ODS = {};
 (function make_ods(ODS) {
 /* Open Document Format for Office Applications (OpenDocument) Version 1.2 */
 var get_utils = function() {
-	if(typeof XLSX !== 'undefined') return XLSX.utils;
-	if(typeof module !== "undefined" && typeof require !== 'undefined') try {
-		return require('../' + 'xlsx').utils;
-	} catch(e) {
-		try { return require('./' + 'xlsx').utils; }
-		catch(ee) { return require('xl' + 'sx').utils; }
-	}
-	throw new Error("Cannot find XLSX utils");
+	return require('./' + 'xlsx').utils;
 };
 var has_buf = (typeof Buffer !== 'undefined');
 
